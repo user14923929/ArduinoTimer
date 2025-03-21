@@ -10,6 +10,6 @@ void setup() {
 void loop() {
     if (timer.tick()) {
         Serial.println("Timeout reached!");
-        timer.start();      // *Restart the timer
+        timer.reset();      // *Restart the timer
     }
 }
