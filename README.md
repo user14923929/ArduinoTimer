@@ -13,7 +13,7 @@ The `ArduinoTimer` library provides a simple way to manage timers in your Arduin
 
 1. Download or clone the library into your Arduino `libraries` folder:
     ```
-    c:/Users/Илюн/OneDrive/Хранилище/Документы и PDF/Arduino/libraries/ArduinoTimer/
+    .../libraries/ArduinoTimer/
     ```
 2. Restart the Arduino IDE to recognize the library.
 
