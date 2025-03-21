@@ -10,6 +10,6 @@ void setup() {
 void loop() {
     if (timer.tick()) {
         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-        timer.reset(); // *Reset the timer
+        timer.start(); // *Restart the timer
     }
 }
