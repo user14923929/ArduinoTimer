@@ -40,7 +40,6 @@ void setup() {
 void loop() {
     if (timer.tick()) {
         Serial.println("Timeout reached!");
-        timer.start();      // *Restart the timer
     }
 }
 ```
@@ -56,12 +55,11 @@ Starts the timer.
 ### `void stop()`
 Stops the timer.
 
-### `void reset()`
-Resets the timer to the current time.
-
 ### `bool tick()`
 Checks if the timer has elapsed. Returns `true` if the interval has passed since the timer started, otherwise `false`.
 
 ## License
 
 This library is open-source and available under the MIT License.  
+
+If you find iccues with this library then enter iccues in page iccues

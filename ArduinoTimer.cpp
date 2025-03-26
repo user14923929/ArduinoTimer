@@ -1,3 +1,5 @@
+// CPP file for the ArduinoTimer class
+
 #include "ArduinoTimer.h"
 #include <Arduino.h>
 
@@ -15,13 +17,10 @@ void ArduinoTimer::stop() {
     _running = false;
 }
 
-void ArduinoTimer::reset() {
-    _startTime = millis();
-}
-
 bool ArduinoTimer::tick() {
-    if (_running && millis() - _startTime >= _interval) {
+    if (_running && millis() % _interval == 0) {
         _running = false;
+        _startTime = millis();
         return true;
     }
     return false;
