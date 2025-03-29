@@ -1,14 +1,23 @@
 #include <ArduinoTimer.h>
-ArduinoTimer timer; // *Create an instance of the ArduinoTimer class
+
+// Pin where the LED is connected
+const int ledPin = 13;
+
+// Create a timer with a 1-second interval (1000 milliseconds)
+ArduinoTimer blinkTimer(1000);
 
 void setup() {
-    timer.setTimeout(1000); // *Set the interval to 1000ms (1 second)
-    timer.start(); // *Start the timer
-    pinMode(LED_BUILTIN, OUTPUT);
+    // Initialize the LED pin as an output
+    pinMode(ledPin, OUTPUT);
+
+    // Start the timer
+    blinkTimer.start();
 }
 
 void loop() {
-    if (timer.tick()) {
-        digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    // Check if the timer has ticked
+    if (blinkTimer.tick()) {
+        // Toggle the LED state
+        digitalWrite(ledPin, !digitalRead(ledPin));
     }
 }

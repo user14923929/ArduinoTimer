@@ -9,7 +9,7 @@
 
 class ArduinoTimer {
     public:
-        void setTimeout(unsigned long interval);
+        ArduinoTimer(unsigned long interval);
         void start();
         void stop();
         bool tick();

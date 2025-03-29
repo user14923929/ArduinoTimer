@@ -3,9 +3,8 @@
 #include "ArduinoTimer.h"
 #include <Arduino.h>
 
-ArduinoTimer::setTimeout(unsigned long interval) {
-    _interval = interval;
-    _running = false;
+ArduinoTimer::ArduinoTimer(unsigned long interval) : _interval(interval), _running(false) {
+    _startTime = 0;
 }
 
 void ArduinoTimer::start() {
@@ -18,10 +17,9 @@ void ArduinoTimer::stop() {
 }
 
 bool ArduinoTimer::tick() {
-    if (_running && millis() % _interval == 0) {
-        _running = false;
+    if (_running && (millis() - _startTime >= _interval)) {
         _startTime = millis();
         return true;
     }
-    return false;
+    return false; 
 }

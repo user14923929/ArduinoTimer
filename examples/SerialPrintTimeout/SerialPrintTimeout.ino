@@ -1,14 +1,20 @@
 #include <ArduinoTimer.h>
-ArduinoTimer timer; // *Create an instance of the ArduinoTimer class
+
+// Create a timer with a 1000ms (1 second) interval
+ArduinoTimer timer(1000);
 
 void setup() {
+    // Initialize Serial communication
     Serial.begin(9600);
-    timer.setTimeout(1000); // *Set timeout to 1000ms (1 second)
-    timer.start();          // *Start the timer
+
+    // Start the timer
+    timer.start();
 }
 
 void loop() {
+    // Check if the timer has ticked
     if (timer.tick()) {
-        Serial.println("Timeout reached!");
+        // Print a message to the Serial Monitor
+        Serial.println("Timer ticked!");
     }
 }
