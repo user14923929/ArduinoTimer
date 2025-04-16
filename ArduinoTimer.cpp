@@ -3,23 +3,23 @@
 #include "ArduinoTimer.h"
 #include <Arduino.h>
 
-ArduinoTimer::ArduinoTimer(unsigned long interval) : _interval(interval), _running(false) {
-    _startTime = 0;
+ArduinoTimer::ArduinoTimer(unsigned long interval) {
+    _interval = interval
+    _running = false
 }
 
 void ArduinoTimer::start() {
-    _startTime = millis();
-    _running = true;
+    if (!_running) _running = true;
 }
 
 void ArduinoTimer::stop() {
-    _running = false;
+    if (_running) _running = false;
 }
 
 bool ArduinoTimer::tick() {
-    if (_running && (millis() - _startTime >= _interval)) {
-        _startTime = millis();
-        return true;
+    if ((_running) && (millis() - tmr >= _interval)) {
+        return true
+    } else {
+        return false
     }
-    return false; 
 }
