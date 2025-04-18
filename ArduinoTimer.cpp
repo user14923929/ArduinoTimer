@@ -18,6 +18,7 @@ void ArduinoTimer::stop() {
 
 bool ArduinoTimer::tick() {
     if ((_running) && (millis() - tmr >= _interval)) {
+        tmr = millis()
         return true
     } else {
         return false
